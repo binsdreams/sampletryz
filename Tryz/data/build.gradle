@@ -33,6 +33,7 @@ dependencies {
     implementation rootProject.ext.ktxCore
     implementation rootProject.ext.retrofit
     api rootProject.ext.coroutinesReactive
+    implementation rootProject.ext.retrofitGsonConverter
 
     // Core library
     androidTestImplementation rootProject.ext.testCore
