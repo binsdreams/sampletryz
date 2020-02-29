@@ -1,29 +1,57 @@
-# README #
+##Trending Repo
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is sample application  which fetch data from git ,repos
 
-### What is this repository for? ###
+1.All the repos shows as list with name of repo,description and author pic
+2.Shimmer animation show before data load
+3.No network/data fetch failure state is handled
+4.Device orientation is handled.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Architecture Details
 
-### How do I get set up? ###
+1.Clean Architecture Approach
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+2.Presentation layer implemented with MVVM
 
-### Contribution guidelines ###
+### Library used
 
-* Writing tests
-* Code review
-* Other guidelines
+1.Using Dagger 2 for dependency Injection
 
-### Who do I talk to? ###
+2.Coroutines
 
-* Repo owner or admin
-* Other community or team contact
+3.Retrofit/Ok Http
+
+4.Getpack navigation lib for Fragment navigation.
+
+5.ConstraintLayout & CoordinatorLayout
+
+
+### Test cases 
+1.UI testing is impimented with Expresso
+2.Mocking server calls also done for UI layer testing.
+
+### Test cases - future plan
+1.Unit test cases should write.
+2.Approach should be same as UI testing, using dagger
+
+### Created By
+
+Binil Thomas P R
+binsdreams@gmail.com 
+8113873716
+
+### License
+
+    Copyright 2019 - 
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
