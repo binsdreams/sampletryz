@@ -33,16 +33,31 @@ dependencies {
     implementation rootProject.ext.ktxCore
     implementation rootProject.ext.coroutines
 
-    // Core library
-    androidTestImplementation rootProject.ext.testCore
-    testImplementation rootProject.ext.junit
-    // AndroidJUnitRunner and JUnit Rules
-    androidTestImplementation rootProject.ext.testRules
-    androidTestImplementation rootProject.ext.testRunner
+    implementation rootProject.ext.dagger
+    implementation rootProject.ext.daggerLib
+    implementation rootProject.ext.dagarSupport
+    kapt rootProject.ext.daggerCompilerKt
+    kapt rootProject.ext.daggerAnotationProcesserKt
 
-    // Assertions
+    //testing library
+    kaptTest rootProject.ext.daggerCompilerKt
+
+    testImplementation rootProject.ext.junit
+    testImplementation  rootProject.ext.testCore
+
     androidTestImplementation rootProject.ext.testJunit
+    androidTestImplementation rootProject.ext.testRules
+    androidTestImplementation rootProject.ext.expresso
     androidTestImplementation rootProject.ext.testTruth
     androidTestImplementation rootProject.ext.googleTestTruth
+    androidTestImplementation rootProject.ext.testRunner
+    androidTestImplementation rootProject.ext.expressoContrib
+
+    androidTestImplementation(rootProject.ext.mockwebserver) {
+        exclude group: "com.squareup.okhttp3"
+    }
+    testImplementation rootProject.ext.mockitoCoere
+    testImplementation rootProject.ext.mockk
+
 
 }

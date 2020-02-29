@@ -77,21 +77,25 @@ dependencies {
     kapt rootProject.ext.daggerAnotationProcesserKt
 
 
-    //Testing lib
-    kapt rootProject.ext.glideCompiler
+    //testing library
+    kaptTest rootProject.ext.daggerCompilerKt
+
     testImplementation rootProject.ext.junit
-    // Core library
-    androidTestImplementation rootProject.ext.testCore
-    // AndroidJUnitRunner and JUnit Rules
-    androidTestImplementation rootProject.ext.testRules
-    androidTestImplementation rootProject.ext.testRunner
-    // Assertions
+    testImplementation  rootProject.ext.testCore
+
     androidTestImplementation rootProject.ext.testJunit
+    androidTestImplementation rootProject.ext.testRules
+    androidTestImplementation rootProject.ext.expresso
     androidTestImplementation rootProject.ext.testTruth
     androidTestImplementation rootProject.ext.googleTestTruth
-    // Espresso dependencies
-    androidTestImplementation rootProject.ext.expresso
+    androidTestImplementation rootProject.ext.testRunner
     androidTestImplementation rootProject.ext.expressoContrib
+
+    androidTestImplementation(rootProject.ext.mockwebserver) {
+        exclude group: "com.squareup.okhttp3"
+    }
+    testImplementation rootProject.ext.mockitoCoere
+    testImplementation rootProject.ext.mockk
 
     implementation project(':data')
 }

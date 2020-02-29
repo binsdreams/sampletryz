@@ -10,10 +10,19 @@ ext {
 
     def glide_version = '4.11.0'
     def retrofit_version = '2.7.1'
-    def testLibVersion = '1.2.0'
-    def espressoVersion = '3.2.0'
     def coroutines_version = "1.1.1"
     def dagger_version = '2.23.2'
+
+
+    //test versios
+    def jUnitVersion = "4.12"
+    def espressoVersion = '3.2.0'
+    def testRunnerVersion = '1.1.1'
+    def extTestRunnerVersion = '1.1.0'
+    def mockWebServerVersion = '3.14.2'
+    def mockitoCoreVersion = '2.19.0'
+    def archCoreVersion = '1.2.0'
+    def testLibVersion = '1.2.0'
 
     ktxCore = "androidx.core:core-ktx:1.2.0"
     kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -51,21 +60,29 @@ ext {
     daggerCompilerKt = "com.google.dagger:dagger-compiler:$dagger_version"
     daggerAnotationProcesserKt = "com.google.dagger:dagger-android-processor:$dagger_version"
 
-    //testing
-    junit = 'junit:junit:4.13'
-    // Core library
-    testCore= "androidx.test:core:$testLibVersion"
+    //testing  // Core library
+    junit = "junit:junit:$jUnitVersion"
+    testCore= "android.arch.core:core-testing:$archCoreVersion"
 
     // AndroidJUnitRunner and JUnit Rules
-    testRules = "androidx.test:rules:$testLibVersion"
-    testRunner = "androidx.test:runner:$testLibVersion"
+    testRules = "androidx.test:rules:$testRunnerVersion"
+    testRunner = "androidx.test:runner:$testRunnerVersion"
 
     // Assertions
-    testJunit = "androidx.test.ext:junit:1.1.0"
+    testJunit = "androidx.test.ext:junit:$extTestRunnerVersion"
     testTruth = "androidx.test.ext:truth:$testLibVersion"
     googleTestTruth = 'com.google.truth:truth:0.42'
 
     // Espresso dependencies
     expresso = "androidx.test.espresso:espresso-core:$espressoVersion"
     expressoContrib = "androidx.test.espresso:espresso-contrib:$espressoVersion"
+
+    mockwebserver = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+
+    //  mockito
+    mockitoCoere = "org.mockito:mockito-core:$mockitoCoreVersion"
+    //  mockk
+    mockk = "io.mockk:mockk:1.9.3"
+
+
 }
