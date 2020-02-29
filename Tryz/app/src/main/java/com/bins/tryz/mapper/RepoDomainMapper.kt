@@ -1,12 +1,19 @@
 package  com.bins.tryz.mapper
 
+import com.bins.domain.entity.DataEntity
 import com.bins.domain.entity.RepoEntity
+import com.bins.tryz.entity.Data
 import com.bins.tryz.entity.SquireRepo
 
 
 class DomainToPresentationMapper {
 
-    fun mapTo(response: List<RepoEntity>?) :List<SquireRepo>  =mapToList(response)
+    fun mapTo(data: DataEntity<List<RepoEntity>>): Data<List<SquireRepo>> {
+        return when (data) {
+            is DataEntity.SUCCESS -> Data.SUCCESS(data.data?.let { mapToList(it) })
+            is DataEntity.ERROR -> Data.ERROR(error =  data.error)
+        }
+    }
 
     private fun mapToList(responses: List<RepoEntity>?)
             : List<SquireRepo> = responses?.map { mapToPresentationEntity(it) } ?: emptyList()

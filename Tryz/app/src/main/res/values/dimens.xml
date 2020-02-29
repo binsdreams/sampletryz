@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">10dp</dimen>
+    <dimen name="ic_min_h">50dp</dimen>
+    <dimen name="ic_min_w">50dp</dimen>
+    <dimen name="textRepoName">16sp</dimen>
+    <dimen name="textDescription">16sp</dimen>
+</resources>
