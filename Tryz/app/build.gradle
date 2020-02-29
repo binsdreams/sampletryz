@@ -69,6 +69,9 @@ dependencies {
     implementation rootProject.ext.navigationFragmentKtx
     implementation rootProject.ext.navigationuiKtx
 
+    implementation rootProject.ext.daggerLib
+    implementation rootProject.ext.dagarSupport
+
     //Testing lib
     kapt rootProject.ext.glideCompiler
     testImplementation rootProject.ext.junit
