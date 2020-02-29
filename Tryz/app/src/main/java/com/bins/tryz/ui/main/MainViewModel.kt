@@ -18,14 +18,17 @@ class MainViewModel @Inject constructor(private var useCase : SquireRepoUseCase)
     private val mapper  =DomainToPresentationMapper()
     private var dataList = MutableLiveData<Data<List<SquireRepo>>>()
 
-    fun getSquireRepos() {
-
-        launch {
-            val deviceInfo = useCase.getSquireRepos()
-            deviceInfo.consumeEach { response ->
-                val mappedResponse = mapper.mapTo(response)
-                withContext(Dispatchers.Main) {
-                    dataList.postValue(mappedResponse)
+    fun getSquireRepos(foreRefresh: Boolean) {
+        if(dataList.value != null && !foreRefresh) {
+            dataList.postValue(dataList.value)
+        }else {
+            launch {
+                val deviceInfo = useCase.getSquireRepos()
+                deviceInfo.consumeEach { response ->
+                    val mappedResponse = mapper.mapTo(response)
+                    withContext(Dispatchers.Main) {
+                        dataList.postValue(mappedResponse)
+                    }
                 }
             }
         }

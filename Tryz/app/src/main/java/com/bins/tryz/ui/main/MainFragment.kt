@@ -38,7 +38,7 @@ class MainFragment : DaggerFragment() {
         recyclerViewData.adapter = adapter
         recyclerViewData.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         adapter.updateList(viewModel.getEmptyListForShimmer())
-        viewModel.getSquireRepos()
+        viewModel.getSquireRepos(false)
         swipeRefreshLayoutLayout.setOnRefreshListener {
             refresh()
         }
@@ -66,11 +66,26 @@ class MainFragment : DaggerFragment() {
     private fun refresh(){
         noNetowrkScreen.visibility = View.GONE
         adapter.updateList(viewModel.getEmptyListForShimmer())
-        viewModel.getSquireRepos()
+        viewModel.getSquireRepos(true)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (context as MainActivity).updateTitle(R.string.repos)
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        var layoutManager = recyclerViewData.layoutManager as LinearLayoutManager
+        outState.putInt("lastVisiblePosition",layoutManager.findFirstVisibleItemPosition())
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        var visiblePosition = savedInstanceState?.getInt("lastVisiblePosition")
+        recyclerViewData.post {
+            recyclerViewData.scrollToPosition(visiblePosition?:0)
+        }
     }
 }

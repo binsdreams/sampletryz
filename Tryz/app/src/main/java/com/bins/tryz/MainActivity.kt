@@ -15,6 +15,6 @@ class MainActivity : AppCompatActivity() {
 
 
     fun updateTitle(resId : Int){
-        toolbar_title.setText(resId)
+        toolbar_title?.setText(resId)
     }
 }
