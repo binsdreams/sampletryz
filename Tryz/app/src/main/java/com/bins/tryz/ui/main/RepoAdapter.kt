@@ -8,7 +8,7 @@ import com.bins.tryz.R
 import com.bins.tryz.databinding.RepoItemBinding
 import com.bins.tryz.entity.SquireRepo
 
-class TrendingAdapter : RecyclerView.Adapter<DataViewHolder>() {
+class RepoAdapter : RecyclerView.Adapter<DataViewHolder>() {
 
     private var dataList = mutableListOf<SquireRepo?>()
 
