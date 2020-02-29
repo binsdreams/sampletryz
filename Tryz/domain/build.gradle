@@ -1,36 +1,48 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+apply plugin: 'kotlin-kapt'
 
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation rootProject.ext.kotlinStdLib
+    implementation rootProject.ext.appCompat
+    implementation rootProject.ext.ktxCore
+    implementation rootProject.ext.coroutines
+
+    // Core library
+    androidTestImplementation rootProject.ext.testCore
+    testImplementation rootProject.ext.junit
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation rootProject.ext.testRules
+    androidTestImplementation rootProject.ext.testRunner
+
+    // Assertions
+    androidTestImplementation rootProject.ext.testJunit
+    androidTestImplementation rootProject.ext.testTruth
+    androidTestImplementation rootProject.ext.googleTestTruth
+
 }
