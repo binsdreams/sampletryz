@@ -19,7 +19,6 @@ ext {
     retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
     retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:$retrofit_version"
     retrofitLoggingInterceptors = "com.squareup.okhttp3:logging-interceptor:3.8.0"
-    retrofitRxAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
     coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
