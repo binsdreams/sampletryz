@@ -33,4 +33,12 @@ class MainViewModel @Inject constructor(private var useCase : SquireRepoUseCase)
 
     fun getData() =dataList
 
+    fun getEmptyListForShimmer():List<SquireRepo?>{
+        val arrayList = ArrayList<SquireRepo?>(10)
+        for (i in 0..10){
+            arrayList.add(null)
+        }
+        return arrayList
+    }
+
 }

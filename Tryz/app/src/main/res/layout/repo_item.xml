@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainActivity"
-        android:paddingBottom="@dimen/fab_margin">
+        android:paddingBottom="@dimen/fab_margin"
+        android:paddingEnd="@dimen/fab_margin">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/avatarImage"
@@ -25,7 +26,7 @@
             app:srcCompat="@drawable/ic_launcher_background"/>
 
         <TextView
-            android:id="@+id/username"
+            android:id="@+id/repoName"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/fab_margin"
             android:layout_marginTop="@dimen/fab_margin"
@@ -39,16 +40,15 @@
             tools:text="@string/app_name" />
 
         <TextView
-            android:id="@+id/reponame"
+            android:id="@+id/description"
             android:layout_width="0dp"
             android:textSize="@dimen/textDescription"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/text_margin"
             android:text="@{trendingRepo.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/avatarImage"
-            app:layout_constraintTop_toBottomOf="@+id/username"
+            app:layout_constraintTop_toBottomOf="@+id/repoName"
             tools:text="@string/app_name"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>

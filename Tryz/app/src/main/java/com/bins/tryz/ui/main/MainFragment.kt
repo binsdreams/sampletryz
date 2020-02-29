@@ -34,6 +34,7 @@ class MainFragment : DaggerFragment() {
         recyclerViewData.layoutManager = LinearLayoutManager(context)
         recyclerViewData.adapter = adapter
         recyclerViewData.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        adapter.updateList(viewModel.getEmptyListForShimmer())
         viewModel.getSquireRepos()
         swipeRefreshLayoutLayout.setOnRefreshListener {
             viewModel.getSquireRepos()
