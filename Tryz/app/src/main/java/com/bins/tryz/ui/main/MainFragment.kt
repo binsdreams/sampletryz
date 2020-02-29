@@ -13,6 +13,7 @@ import com.bins.tryz.R
 import com.bins.tryz.entity.Data
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.no_network_layout.*
 import javax.inject.Inject
 
 class MainFragment : DaggerFragment() {
@@ -37,7 +38,7 @@ class MainFragment : DaggerFragment() {
         adapter.updateList(viewModel.getEmptyListForShimmer())
         viewModel.getSquireRepos()
         swipeRefreshLayoutLayout.setOnRefreshListener {
-            viewModel.getSquireRepos()
+            refresh()
         }
 
         viewModel.getData().observe(viewLifecycleOwner, Observer {
@@ -45,13 +46,25 @@ class MainFragment : DaggerFragment() {
                 is Data.ERROR -> {
                     var error = it.error
                     swipeRefreshLayoutLayout.isRefreshing = false
+                    noNetowrkScreen.visibility = View.VISIBLE
                 }
                 is Data.SUCCESS -> {
+                    noNetowrkScreen.visibility = View.GONE
                     swipeRefreshLayoutLayout.isRefreshing = false
                     it.data?.let { list -> adapter?.updateList(list) }
                 }
             }
         })
+
+        retryButton.setOnClickListener{
+            refresh()
+        }
+    }
+
+    private fun refresh(){
+        noNetowrkScreen.visibility = View.GONE
+        adapter.updateList(viewModel.getEmptyListForShimmer())
+        viewModel.getSquireRepos()
     }
 
 }

@@ -2,4 +2,7 @@
     <string name="app_name">Tryz</string>
 
     <string name="repos">Square Git Profile</string>
+    <string name="no_connection_detail_message">Uh oh. The internet’s down or some one is blocking us!!</string>
+    <string name="no_connection_message">Something went wrong!</string>
+    <string name="retry">Retry</string>
 </resources>
