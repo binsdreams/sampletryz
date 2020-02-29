@@ -11,17 +11,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/**
- * [NetworkModule] class is responsible for providing application level dependencies
- * Anotated with singleton annotation to tell dagger these dependencies also exists
- * when [AppComponent] alive and destroy these dependencies when [AppComponent] destroy
- */
 @Module
-class NetworkModule {
+class TestNetworkModule{
 
     @AppScoped
     @Provides
-    fun provideRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
+    open fun provideRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(getBaseURl())
             .client(okHttpClient)
@@ -31,7 +26,7 @@ class NetworkModule {
     }
 
     @Provides
-    fun httpClient(): OkHttpClient {
+    open fun httpClient(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT)
         val clientBuilder = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) {
@@ -44,8 +39,6 @@ class NetworkModule {
     }
 
     private fun getBaseURl():String{
-        return "https://api.github.com"
+        return "http://localhost:8080/"
     }
-
-
 }
