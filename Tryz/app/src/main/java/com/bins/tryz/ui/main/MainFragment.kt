@@ -1,20 +1,24 @@
 package com.bins.tryz.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import com.bins.base.ViewModelProviderFactory
 import com.bins.tryz.R
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment : DaggerFragment() {
+
+    lateinit var viewModel: MainViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelProviderFactory
 
     companion object {
         fun newInstance() = MainFragment()
     }
-
-    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +29,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
     }
 
 }

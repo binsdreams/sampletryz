@@ -1,6 +1,6 @@
 package com.bins.data.repository
 
-import com.bins.data.api.TrendingRepoApi
+import com.bins.data.api.SquireRepoApi
 import com.bins.data.mapper.ResponseDataToDomainEntityMapper
 import com.bins.domain.entity.DataEntity
 import com.bins.domain.entity.RepoEntity
@@ -9,7 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.produce
 
-class SquireRepositoryImpl(private val api: TrendingRepoApi) : SquireRepository {
+class SquireRepositoryImpl(private val api: SquireRepoApi) : SquireRepository {
 
    private var mapper = ResponseDataToDomainEntityMapper()
 
