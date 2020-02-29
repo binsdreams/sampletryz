@@ -1,5 +1,6 @@
 package com.bins.tryz.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bins.base.ViewModelProviderFactory
+import com.bins.tryz.MainActivity
 import com.bins.tryz.R
 import com.bins.tryz.entity.Data
 import dagger.android.support.DaggerFragment
@@ -67,4 +69,8 @@ class MainFragment : DaggerFragment() {
         viewModel.getSquireRepos()
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (context as MainActivity).updateTitle(R.string.repos)
+    }
 }

@@ -1,9 +1,11 @@
 package com.bins.tryz.ui.main
 
+import android.content.res.Resources
 import androidx.databinding.BaseObservable
+import com.bins.tryz.R
 import com.bins.tryz.entity.SquireRepo
 
-class RepoItemVM constructor(private var repoItem: SquireRepo?) : BaseObservable() {
+class RepoItemVM constructor(private var repoItem: SquireRepo?,private var res: Resources?) : BaseObservable() {
 
     fun getName(): String? {
         return repoItem?.name
@@ -14,7 +16,7 @@ class RepoItemVM constructor(private var repoItem: SquireRepo?) : BaseObservable
     }
 
     fun getDescription(): String? {
-        return repoItem?.description
+        return if(repoItem?.description.isNullOrEmpty()) res?.getString(R.string.noDescription) else repoItem?.description
     }
 
 

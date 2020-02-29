@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bins.common.loadImage
 import com.bins.tryz.R
 import com.bins.tryz.databinding.RepoItemBinding
 import com.bins.tryz.entity.SquireRepo
@@ -63,6 +64,7 @@ class DataViewHolder(private var binding: RepoItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(dataItem: SquireRepo?) {
-        binding.trendingRepo = RepoItemVM(dataItem)
+        binding.trendingRepo = RepoItemVM(dataItem,binding.root.resources)
+        binding.avatarImage.loadImage(dataItem?.avatar_url?:"")
     }
 }

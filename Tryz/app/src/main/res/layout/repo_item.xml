@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="@dimen/textRepoName"
-            android:text="@{trendingRepo.name}"
+            android:text="@{trendingRepo.fullName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/avatarImage"
             app:layout_constraintTop_toTopOf="parent"
