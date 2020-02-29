@@ -36,6 +36,12 @@ ext {
     glideCompiler =  "com.github.bumptech.glide:compiler:$glide_version"
     shimmer = 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
+    //mavigation lib
+    navigationFragment = 'androidx.navigation:navigation-fragment:2.1.0'
+    navigationui = 'androidx.navigation:navigation-ui:2.1.0'
+    navigationFragmentKtx = 'androidx.navigation:navigation-fragment-ktx:2.1.0'
+    navigationuiKtx = 'androidx.navigation:navigation-ui-ktx:2.1.0'
+
     //testing
     junit = 'junit:junit:4.13'
     // Core library

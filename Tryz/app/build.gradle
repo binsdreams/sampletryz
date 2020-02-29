@@ -63,6 +63,11 @@ dependencies {
     //coroutines
     implementation rootProject.ext.coroutines
     implementation rootProject.ext.coroutinesAndroid
+    //navigation
+    implementation rootProject.ext.navigationFragment
+    implementation rootProject.ext.navigationui
+    implementation rootProject.ext.navigationFragmentKtx
+    implementation rootProject.ext.navigationuiKtx
 
     //Testing lib
     kapt rootProject.ext.glideCompiler
